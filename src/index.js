@@ -1,2 +1,2 @@
-import test from "./test";
-test();
+import { testingFn } from "./script";
+console.log(testingFn());
