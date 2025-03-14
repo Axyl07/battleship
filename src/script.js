@@ -3,7 +3,7 @@
 // }
 
 export class Ship{
-  constructor(length,hitCount,sunkStatus) {
+  constructor(length=0,hitCount=0,sunkStatus=false) {
     this.length = length;
     this.hitCount = hitCount;
     this.sunkStatus = sunkStatus;
