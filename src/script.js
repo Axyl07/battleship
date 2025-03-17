@@ -29,8 +29,16 @@ export class Gameboard {
   positions = Array.from(Array(10), () => new Array(10)); //creates 2D array of 10x10
  
   place(x, y, shipName) {
-    if (typeof(this.positions[x][y])!=='object') {
-      this.positions[x][y] = shipName;
+    const length = shipName.length;
+    if (typeof (this.positions[x][y]) !== 'object') {
+      if (length===1) {
+        this.positions[x][y] = shipName;
+        
+      } else {
+        for (let index = 1; index <= length; index++) {
+          this.positions[x][(y + index) - 1] = shipName; 
+        }
+      }
       this.placedShips.push(shipName);
     }
   }
