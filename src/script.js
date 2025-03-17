@@ -7,14 +7,10 @@ export class Ship {
     length = 0,
     hitCount = 0,
     sunkStatus = false,
-    // xCoordinate,
-    // yCoordinate,
   ) {
     this.length = length;
     this.hitCount = hitCount;
     this.sunkStatus = sunkStatus;
-    // this.xCoordinate = xCoordinate;
-    // this.yCoordinate = yCoordinate;
   }
   hit() {
     this.hitCount++;
@@ -56,3 +52,10 @@ export class Gameboard {
     }
   }
 
+export class Player{
+  constructor(type,gameboard=new Gameboard()) {
+    this.type = type;
+    this.gameboard = gameboard
+    
+  }
+}

@@ -1,6 +1,6 @@
 // import { testingFn } from "./script.js";
 import { describe, expect, test } from "@jest/globals";
-import { Ship, Gameboard } from "./script";
+import { Ship, Gameboard,Player } from "./script";
 // test("testing", () => {
 //   expect(testingFn()).toBe("is this battleship working>/?");
 // });
@@ -51,3 +51,12 @@ test("Place ship test", () => {
     expect(ship4.isSunk()).toBe(false);
     expect(gameboard1.checkAllSunk()).toBe(false);
 });
+
+
+test('Player test', () => {
+  const human = new Player('Human');
+  const computer = new Player('Computer');
+expect(human.type).toBe('Human')
+  expect(computer.type).toBe('Computer')
+  expect(typeof(human.gameboard)).toBe('object')
+})
