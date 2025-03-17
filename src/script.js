@@ -51,12 +51,12 @@ export class Gameboard {
   }
   checkAllSunk() {
     let count = 0;
-    this.positions.forEach(ship => {
+    this.placedShips.forEach(ship => {
       if (ship.sunkStatus === false) {
         count++;
       }
     });
-    if (count !== 0) {
+    if (count == 0) {
       return true;
     } else return false;
     }

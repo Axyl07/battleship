@@ -69,6 +69,8 @@ test('Player test', () => {
   expect(ship1.isSunk()).toBe(true)
   expect(ship3.isSunk()).toBe(true)
   // console.log(ship1.sunkStatus);
+  console.log(human.gameboard.placedShips);
+  expect(human.gameboard.checkAllSunk()).toBe(true);
   expect(human.type).toBe('Human');
   expect(computer.type).toBe('Computer')
   expect(typeof(human.gameboard)).toBe('object')
