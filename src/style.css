@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.humanGrid{
+    border: 2px solid black;
+    display: flex;
+    width: 720px;
+    height: 720px;
+    flex-direction: column;
+}
+.computerGrid{
+    border: 2px solid black;
+    display: flex;
+    width: 720px;
+    height: 720px;
+    flex-direction: column;
+}
