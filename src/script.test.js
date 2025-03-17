@@ -25,6 +25,7 @@ test("Place ship test", () => {
   const ship3 = new Ship(1, 0, false);
   const ship4 = new Ship(1, 0, false);
   const gameboard1 = new Gameboard();
+  console.log(gameboard1.positions);
   gameboard1.place(0, 0, ship1);
   gameboard1.place(4, 0, ship2);
   gameboard1.place(2, 1, ship3);
@@ -56,7 +57,12 @@ test("Place ship test", () => {
 test('Player test', () => {
   const human = new Player('Human');
   const computer = new Player('Computer');
-expect(human.type).toBe('Human')
+  const ship1 = new Ship(1, 0, false);
+  const ship3 = new Ship(3, 0, false);
+  human.gameboard.place(0, 0, ship1);
+  human.gameboard.place(0, 0, ship3);
+  console.log(human.gameboard.positions);
+  expect(human.type).toBe('Human');
   expect(computer.type).toBe('Computer')
   expect(typeof(human.gameboard)).toBe('object')
 })
