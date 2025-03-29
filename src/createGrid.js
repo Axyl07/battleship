@@ -19,11 +19,13 @@ export function createGrid(row, col, container) {
             col.style.border = "1px solid black"
             col.className = "col";
             col.style.backgroundColor = "cyan";
-            col.id = `${[index,j]}`
+            col.id = `${container.className}-${[index,j]}`
             // col.textContent = 'X'
             col.style.alignItems= 'center'
             col.style.justifyContent = 'center'
             col.style.fontSize= '3rem'
+            col.style.borderRadius= '5px'
+            col.style.margin= '1px'
             row.appendChild(col);
         }
     }

@@ -5,8 +5,8 @@ import renderGameboard from "./renderGameboard";
 // No.	Class of ship	Size
 // 1	Carrier	        5
 // 2	Battleship	    4
-// 3	Destroyer	    3
-// 4	Submarine	    3
+// 3	Destroyer	      3
+// 4	Submarine	      3
 // 5	Patrol Boat	    2
 export function startGame() {
   console.log("test");
@@ -15,6 +15,7 @@ export function startGame() {
 
   const humanGrid = document.querySelector(".humanGrid");
   const computerGrid = document.querySelector(".computerGrid");
+  // console.log(humanGrid.querySelector('#1,1'));
   humanGrid.style.display = 'flex'
   computerGrid.style.display = 'flex'
   createGrid(10, 10, humanGrid);
@@ -33,13 +34,20 @@ export function startGame() {
   const CPatrolBoat = new Ship(2);
 
   Human.gameboard.place(0, 0, Hcarrier);
-  Computer.gameboard.place(0, 0, Ccarrier);
-  Human.gameboard.receiveAttack(0,5)
-  Human.gameboard.receiveAttack(1,1)
-  Human.gameboard.receiveAttack(2,1)
-  Human.gameboard.receiveAttack(3,1)
-  Human.gameboard.receiveAttack(4,1)
+  Human.gameboard.place(1, 6, HBattleship);
+  Human.gameboard.place(2, 3, HDestroyer);
+  Human.gameboard.place(3, 6, HSubmarine);
+  Human.gameboard.place(7, 5, HPatrolBoat);
+
+  Computer.gameboard.place(0, 0, CDestroyer);
+
+  Human.gameboard.receiveAttack(0,0)
+  Human.gameboard.receiveAttack(0,1)
+  Human.gameboard.receiveAttack(0,2)
+  Human.gameboard.receiveAttack(0,3)
+  Human.gameboard.receiveAttack(0,4)
   renderGameboard(Human.gameboard, humanGrid);
+  renderGameboard(Computer.gameboard,computerGrid);
 }
 
 
