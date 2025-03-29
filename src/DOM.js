@@ -1,7 +1,7 @@
 import { Player, Gameboard, Ship } from "./script";
 import { createGrid } from "./createGrid";
 import renderGameboard from "./renderGameboard";
-
+import play from "./domHit";
 // No.	Class of ship	Size
 // 1	Carrier	        5
 // 2	Battleship	    4
@@ -40,12 +40,19 @@ export function startGame() {
   Human.gameboard.place(7, 5, HPatrolBoat);
 
   Computer.gameboard.place(0, 0, CDestroyer);
+  Computer.gameboard.place(3, 5, Ccarrier);
+  Computer.gameboard.place(2, 1, CSubmarine);
+  Computer.gameboard.place(6, 4, CPatrolBoat);
+  Computer.gameboard.place(0, 5, CBattleship);
 
-  Human.gameboard.receiveAttack(0,0)
-  Human.gameboard.receiveAttack(0,1)
-  Human.gameboard.receiveAttack(0,2)
-  Human.gameboard.receiveAttack(0,3)
-  Human.gameboard.receiveAttack(0,4)
+// console.log(Human);
+// console.log(Computer);
+  play(Human, Computer);
+  // Human.gameboard.receiveAttack(0,0)
+  // Human.gameboard.receiveAttack(0,1)
+  // Human.gameboard.receiveAttack(0,2)
+  // Human.gameboard.receiveAttack(0,3)
+  // Human.gameboard.receiveAttack(0,4)
   renderGameboard(Human.gameboard, humanGrid);
   renderGameboard(Computer.gameboard,computerGrid);
 }

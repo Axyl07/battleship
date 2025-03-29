@@ -3,14 +3,13 @@
 import { startGame } from "./DOM";
 import { Ship } from "./script";
 import "./style.css";
-
 // startGame();
 const startButton = document.querySelector(".startBtn");
-startButton.addEventListener('click', () => {
-    startGame();
-    startButton.disabled = true;
-})
-
+startButton.addEventListener("click", () => {
+  startGame();
+  
+  startButton.disabled = true;
+});
 
 // No.	Class of ship	Size
 // 1	Carrier	        5
