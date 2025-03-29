@@ -1,5 +1,6 @@
 import { Player, Gameboard, Ship } from "./script";
 import { createGrid } from "./createGrid";
+import renderGameboard from "./renderGameboard";
 
 // No.	Class of ship	Size
 // 1	Carrier	        5
@@ -31,11 +32,14 @@ export function startGame() {
   const CSubmarine = new Ship(3);
   const CPatrolBoat = new Ship(2);
 
-
-  const humanGameboard = new Gameboard();
-  const computerGameboard = new Gameboard();
-
-
+  Human.gameboard.place(0, 0, Hcarrier);
+  Computer.gameboard.place(0, 0, Ccarrier);
+  Human.gameboard.receiveAttack(0,5)
+  Human.gameboard.receiveAttack(1,1)
+  Human.gameboard.receiveAttack(2,1)
+  Human.gameboard.receiveAttack(3,1)
+  Human.gameboard.receiveAttack(4,1)
+  renderGameboard(Human.gameboard, humanGrid);
 }
 
 

@@ -19,7 +19,7 @@ export function createGrid(row, col, container) {
             col.style.border = "1px solid black"
             col.className = "col";
             col.style.backgroundColor = "cyan";
-            col.className = `${[index,j]}`
+            col.id = `${[index,j]}`
             // col.textContent = 'X'
             col.style.alignItems= 'center'
             col.style.justifyContent = 'center'
