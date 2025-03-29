@@ -12,7 +12,7 @@ export function createGrid(row, col, container) {
         row.style.flex = "1";
         container.appendChild(row);
         for (let j = 0; j < col; j++) {
-            let col = document.createElement("div");
+            let col = document.createElement("button");
     
             col.style.display = "flex";
             col.style.flex = "1";

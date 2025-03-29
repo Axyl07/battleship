@@ -8,7 +8,7 @@ export default function play(human, computer) {
   const cells = document.querySelectorAll(".col");
   //   console.log(cells);
   cells.forEach((cell) => {
-    cell.addEventListener("click", () => {
+      cell.addEventListener("click", () => {
       const idString = cell.id;
       console.log(idString);
       const idStringLength = idString.length;

@@ -18,7 +18,9 @@ export default function renderGameboard(GameBoard, Grid) {
           const gridCell = document.getElementById(
             `${Grid.className}-${i},${j}`,
           );
-          gridCell.style.backgroundColor = "red";
+            gridCell.textContent = 'X'
+          gridCell.style.backgroundColor = "white";
+          gridCell.style.color = "red";
           gridCell.style.border = "1px solid red";
         } else {
           const gridCell = document.getElementById(
