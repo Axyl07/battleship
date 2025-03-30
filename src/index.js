@@ -1,8 +1,10 @@
 // import { testingFn } from "./script";
 // console.log(testingFn());
 import { startGame } from "./DOM";
-import { Ship } from "./script";
+// import { Ship } from "./script";
 import "./style.css";
+
+
 // startGame();
 const startButton = document.querySelector(".startBtn");
 startButton.addEventListener("click", () => {

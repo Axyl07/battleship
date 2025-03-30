@@ -16,3 +16,6 @@
     height: 720px;
     flex-direction: column;
 }
+.col{
+    cursor: crosshair;
+}
