@@ -1,6 +1,7 @@
 import { Player, Ship } from "./script";
 import { createGrid } from "./createGrid";
 import play from "./play";
+import initialRender from "./initialRender";
 // import renderGameboard from "./renderGameboard";
 // No.	Class of ship	Size
 // 1	Carrier	        5
@@ -45,8 +46,19 @@ export function startGame() {
   Computer.gameboard.place(6, 4, CPatrolBoat);
   Computer.gameboard.place(0, 5, CBattleship);
 
+  initialRender(Human, humanGrid);
+  // initialRender(Computer, computerGrid);
+  const playBtn = document.querySelector('.play')
+  // const resultsDiv = document.querySelector('results');
+  // let returnedResult = "";
+  playBtn.style.display = 'block';
+  playBtn.addEventListener('click', () => {
+    play(Human, Computer);
+    playBtn.style.display = "none"
+  })
 
-  play(Human, Computer);
+  // return returnedResult;
+  // resultsDiv.textContent = returnedResult;
   // renderGameboard(Human.gameboard, humanGrid);
   // renderGameboard(Computer.gameboard, computerGrid);
   //turn based playing

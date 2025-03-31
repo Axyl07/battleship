@@ -17,7 +17,7 @@ export function createGrid(row, col, container) {
             col.style.flex = "1";
             col.style.border = "1px solid black"
             col.className = "col";
-            col.style.backgroundColor = "cyan";
+            // col.style.backgroundColor = "cyan";
             col.id = `${container.className}-${[index,j]}`
             // col.textContent = 'X'
             col.style.alignItems= 'center'

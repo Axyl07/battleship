@@ -4,12 +4,11 @@ import { startGame } from "./start";
 // import { Ship } from "./script";
 import "./style.css";
 
-
 // startGame();
 const startButton = document.querySelector(".startBtn");
 startButton.addEventListener("click", () => {
   startGame();
-  
+
   startButton.disabled = true;
 });
 

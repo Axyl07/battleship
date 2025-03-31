@@ -19,3 +19,6 @@
 .col{
     cursor: crosshair;
 }
+.computerGrid .col:hover{
+    background-color: hsla(187, 89%, 36%, 0.884);
+}
