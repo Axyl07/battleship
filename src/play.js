@@ -1,16 +1,25 @@
 import renderGameboard from "./renderGameboard";
 
+let handleClick = () => {
+  
+}
+
 export default function play(Human, Computer) {
-  let allPlayedMoves = [];
+  let allComputerPlayedMoves = [];
 
   const computerGrid = document.querySelector(".computerGrid");
   const computerGameboard = Computer.gameboard;
   const computerPositions = computerGameboard.positions;
+
+
+  const humanGrid = document.querySelector(".humanGrid");
+  const humanGameboard = Human.gameboard;
+  const humanPositions = humanGameboard.positions;
   // let x = 0;
   // let y = 0;
   const cells = computerGrid.querySelectorAll(".col");
   cells.forEach((cell) => {
-    cell.addEventListener("click", () => {
+    cell.addEventListener("click", handleClick = () => {
       //human plays first
       const idString = cell.id;
       let x = idString.substring(13, 14);
@@ -57,20 +66,18 @@ export default function play(Human, Computer) {
       // cell.disabled = "true";
 
       //then computer plays
-      const humanGrid = document.querySelector(".humanGrid");
-      const humanGameboard = Human.gameboard;
-      const humanPositions = humanGameboard.positions;
+    
       let move = [
         Math.floor(Math.random() * 10),
         Math.floor(Math.random() * 10),
       ];
       let moveInStringForm = move.toLocaleString();
       //to only use moves that have not been played before;
-      while (allPlayedMoves.includes(moveInStringForm)) {
+      while (allComputerPlayedMoves.includes(moveInStringForm)) {
         move = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
         moveInStringForm = move.toLocaleString();
       }
-      allPlayedMoves.push(moveInStringForm);
+      allComputerPlayedMoves.push(moveInStringForm);
       x = move[0];
       y = move[1];
       humanGameboard.receiveAttack(x, y);
@@ -113,8 +120,27 @@ export default function play(Human, Computer) {
         // cell.disabled = "true";
       }
       cell.disabled = "true";
+      if (humanGameboard.checkAllSunk()) {
+        const results = document.querySelector('.results');
+        results.textContent = "Computer has won"
+        results.style.textAlign = 'center';
+        results.style.fontSize = '3rem';
+      }
+      else if (computerGameboard.checkAllSunk()) {
+        const results = document.querySelector('.results');
+        results.textContent = "Human has won"
+        results.style.textAlign = 'center';
+        results.style.fontSize = '3rem';
+      }
     });
   });
+  // if (humanGameboard.checkAllSunk() || computerGameboard.checkAllSunk()) {
+  //   const cells = computerGrid.querySelectorAll(".col");
+  //   cells.forEach(cell => {
+  //     cell.removeEventListener('click', handleClick());
+  //   })
+    
+  // }
 }
 
 // export default function playGame(human, computer) {
