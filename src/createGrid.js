@@ -22,7 +22,7 @@ export function createGrid(row, col, container) {
             // col.textContent = 'X'
             col.style.alignItems= 'center'
             col.style.justifyContent = 'center'
-            col.style.fontSize= '3rem'
+            col.style.fontSize= '40px'
             col.style.borderRadius= '5px'
             col.style.margin= '1px'
             row.appendChild(col);
