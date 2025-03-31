@@ -1,6 +1,6 @@
 // import { testingFn } from "./script";
 // console.log(testingFn());
-import { startGame } from "./DOM";
+import { startGame } from "./start";
 // import { Ship } from "./script";
 import "./style.css";
 

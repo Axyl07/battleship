@@ -1,6 +1,7 @@
-import { Player, Gameboard, Ship } from "./script";
+import { Player, Ship } from "./script";
 import { createGrid } from "./createGrid";
 import play from "./play";
+// import renderGameboard from "./renderGameboard";
 // No.	Class of ship	Size
 // 1	Carrier	        5
 // 2	Battleship	    4
@@ -15,8 +16,8 @@ export function startGame() {
   const humanGrid = document.querySelector(".humanGrid");
   const computerGrid = document.querySelector(".computerGrid");
   // console.log(humanGrid.querySelector('#1,1'));
-  humanGrid.style.display = 'flex'
-  computerGrid.style.display = 'flex'
+  humanGrid.style.display = "flex";
+  computerGrid.style.display = "flex";
   createGrid(10, 10, humanGrid);
   createGrid(10, 10, computerGrid);
   //human ships
@@ -44,12 +45,22 @@ export function startGame() {
   Computer.gameboard.place(6, 4, CPatrolBoat);
   Computer.gameboard.place(0, 5, CBattleship);
 
+
+  play(Human, Computer);
+  // renderGameboard(Human.gameboard, humanGrid);
+  // renderGameboard(Computer.gameboard, computerGrid);
   //turn based playing
   // while (!Human.gameboard.checkAllSunk() || !Computer.gameboard.checkAllSunk()) {
   //   play(Human, Computer);
-  // }  
-  play(Human, Computer);
+  // }
+  
+  // while (true) {
+  //   while (HumanMove(Computer)) {
+  //     console.log("Human is playing");
+  //   }
+  //   while (computerMove(Human)) {
+  //      console.log("computer is playing");
+  //     }
+  // }
 
 }
-
-

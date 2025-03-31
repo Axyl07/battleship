@@ -2,7 +2,6 @@
 // const computerGrid = document.querySelector('.computerGrid');
 
 export function createGrid(row, col, container) {
-    console.log('grid test')
     for (let index = 0; index < row; index++) {
         const row = document.createElement("div");
         
