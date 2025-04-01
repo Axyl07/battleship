@@ -22,6 +22,7 @@ export function startGame() {
   createGrid(10, 10, humanGrid);
   createGrid(10, 10, computerGrid);
   //human ships
+
   const Hcarrier = new Ship(5);
   const HBattleship = new Ship(4);
   const HDestroyer = new Ship(3);
@@ -34,7 +35,10 @@ export function startGame() {
   const CSubmarine = new Ship(3);
   const CPatrolBoat = new Ship(2);
 
-  Human.gameboard.place(0, 0, Hcarrier);
+  // let allRandomPositionsArray = [];
+  
+
+  Human.gameboard.place(7, 9, Hcarrier);
   Human.gameboard.place(1, 6, HBattleship);
   Human.gameboard.place(2, 3, HDestroyer);
   Human.gameboard.place(3, 6, HSubmarine);
@@ -48,18 +52,15 @@ export function startGame() {
 
   initialRender(Human, humanGrid);
   // initialRender(Computer, computerGrid);
-  const playBtn = document.querySelector('.play')
+  const playBtn = document.querySelector(".play");
   // const resultsDiv = document.querySelector('results');
   // let returnedResult = "";
-  playBtn.style.display = 'block';
-  playBtn.addEventListener('click', () => {
+  playBtn.style.display = "block";
+  playBtn.addEventListener("click", () => {
     play(Human, Computer);
-    playBtn.style.display = "none"
-  })
+    playBtn.style.display = "none";
+  });
 
-
-
- 
   // return returnedResult;
   // resultsDiv.textContent = returnedResult;
   // renderGameboard(Human.gameboard, humanGrid);
@@ -68,7 +69,7 @@ export function startGame() {
   // while (!Human.gameboard.checkAllSunk() || !Computer.gameboard.checkAllSunk()) {
   //   play(Human, Computer);
   // }
-  
+
   // while (true) {
   //   while (HumanMove(Computer)) {
   //     console.log("Human is playing");
@@ -77,5 +78,4 @@ export function startGame() {
   //      console.log("computer is playing");
   //     }
   // }
-
 }
