@@ -1,16 +1,5 @@
 export default function initialRender(Player, Grid) {
-  //render missed Shots
-  // const missedShots = Player.gameboard.missedShots;
-  // missedShots.forEach((array) => {
-  //   const x = array[0];
-  //   const y = array[1];
-  //   console.log(`${Grid.className}-${x},${y}`);
-  //   const cell = document.getElementById(`${Grid.className}-${x},${y}`);
-  //   cell.textContent = "•";
-  // });
-  // console.log(positions);
 
-  // console.log(positions);
 
   //render hit shots
   const positions = Player.gameboard.positions;
@@ -22,7 +11,7 @@ export default function initialRender(Player, Grid) {
         const gridCell = document.getElementById(
           `${Grid.className}-${i},${j}`,
         );
-        gridCell.style.backgroundColor = "aquamarine"
+        gridCell.style.backgroundColor = "orange"
         gridCell.style.border = "1px dashed cyan"
       } 
     }

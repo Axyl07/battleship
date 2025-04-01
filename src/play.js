@@ -1,6 +1,6 @@
 export default function play(Human, Computer) {
   const results = document.querySelector(".results");
-  results.textContent = "Game has started! Make your Move"
+  results.textContent = "Game has started! Make your Move";
   let allComputerPlayedMoves = [];
   const computerGrid = document.querySelector(".computerGrid");
   const computerGameboard = Computer.gameboard;
@@ -13,142 +13,145 @@ export default function play(Human, Computer) {
   // let y = 0;
   const cells = computerGrid.querySelectorAll(".col");
   function handleClick(cell) {
-    results.textContent = ""
+    results.textContent = "";
     //explosion sound effect
-    const explosion = document.querySelector('#explosion');
-    
-     //human plays first
-     const idString = cell.id;
-     let x = idString.substring(13, 14);
-     let y = idString.substring(15, 16);
-     computerGameboard.receiveAttack(x, y);
-     let hitCell = computerPositions[x][y];
+    const explosion = document.querySelector("#explosion");
+
+    //human plays first
+    const idString = cell.id;
+    let x = idString.substring(13, 14);
+    let y = idString.substring(15, 16);
+    computerGameboard.receiveAttack(x, y);
+    let hitCell = computerPositions[x][y];
     if (typeof hitCell === "object") {
       explosion.play();
       explosion.muted = false;
-       if (hitCell.hitCount > 0 && !hitCell.isSunk()) {
-         const gridCell = document.getElementById(
-           `${computerGrid.className}-${x},${y}`,
-         );
-         gridCell.style.backgroundColor = "yellow";
-         // cell.disabled = "true";
-         // return true;
-       } else if (hitCell.hitCount > 0 && hitCell.isSunk()) {
-         const positions = computerGameboard.positions;
-         for (let i = 0; i < positions.length; i++) {
-           const row = positions[i];
-           for (let j = 0; j < row.length; j++) {
-             const col = row[j];
-             if (typeof col === "object") {
-               if (col.hitCount > 0 && col.isSunk()) {
-                 //sunk
-                 const gridCell = document.getElementById(
-                   `${computerGrid.className}-${i},${j}`,
-                 );
-                 gridCell.textContent = "X";
-                 gridCell.style.backgroundColor = "yellow";
-                 gridCell.style.color = "Red";
-                 gridCell.style.border = "1px solid red";
-               }
-             }
-           }
-         }
-       }
-     } else {
-       //shot missed with empty hit
-       const gridCell = document.getElementById(
-         `${computerGrid.className}-${x},${y}`,
-       );
-       gridCell.textContent = "•";
-       // cell.disabled = "true";
-     }
-     // cell.disabled = "true";
+      if (hitCell.hitCount > 0 && !hitCell.isSunk()) {
+        const gridCell = document.getElementById(
+          `${computerGrid.className}-${x},${y}`,
+        );
+        gridCell.style.backgroundColor = "yellow";
+        // cell.disabled = "true";
+        // return true;
+      } else if (hitCell.hitCount > 0 && hitCell.isSunk()) {
+        const positions = computerGameboard.positions;
+        for (let i = 0; i < positions.length; i++) {
+          const row = positions[i];
+          for (let j = 0; j < row.length; j++) {
+            const col = row[j];
+            if (typeof col === "object") {
+              if (col.hitCount > 0 && col.isSunk()) {
+                //sunk
+                const gridCell = document.getElementById(
+                  `${computerGrid.className}-${i},${j}`,
+                );
+                gridCell.textContent = "X";
+                gridCell.style.backgroundColor = "yellow";
+                gridCell.style.color = "Red";
+                gridCell.style.border = "1px solid red";
+              }
+            }
+          }
+        }
+      }
+    } else {
+      //shot missed with empty hit
+      const gridCell = document.getElementById(
+        `${computerGrid.className}-${x},${y}`,
+      );
+      gridCell.textContent = "•";
+      // cell.disabled = "true";
+    }
+    // cell.disabled = "true";
 
-     //then computer plays
+    //then computer plays:
 
-     let move = [
-       Math.floor(Math.random() * 10),
-       Math.floor(Math.random() * 10),
-     ];
-     let moveInStringForm = move.toLocaleString();
-     //to only use moves that have not been played before;
-     while (allComputerPlayedMoves.includes(moveInStringForm)) {
-       move = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
-       moveInStringForm = move.toLocaleString();
-     }
-     allComputerPlayedMoves.push(moveInStringForm);
-     x = move[0];
-     y = move[1];
-     humanGameboard.receiveAttack(x, y);
-     //rendering after hit
-     hitCell = humanPositions[x][y];
+    let move = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    let moveInStringForm = move.toLocaleString();
+    //to only use moves that have not been played before;
+    while (allComputerPlayedMoves.includes(moveInStringForm)) {
+      move = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+      moveInStringForm = move.toLocaleString();
+    }
+    allComputerPlayedMoves.push(moveInStringForm);
+    console.log(allComputerPlayedMoves);
+    x = move[0];
+    y = move[1];
+    // humanGameboard.receiveAttack(x, y);
+    if (humanGameboard.receiveAttack(x, y)) {
+      y = y + 1;
+      humanGameboard.receiveAttack(x, y);
+    }
+    // let resultOfhit = humanGameboard.receiveAttack(x, y);
+    // while (resultOfhit) {
+    //   y = y + 1;
+    //   resultOfhit = humanGameboard.receiveAttack(x, y);
+    // }
+    //rendering after hit
+    hitCell = humanPositions[x][y];
     if (typeof hitCell === "object") {
       explosion.play();
       explosion.muted = false;
-       if (hitCell.hitCount > 0 && !hitCell.isSunk()) {
-         const gridCell = document.getElementById(
-           `${humanGrid.className}-${x},${y}`,
-         );
-         gridCell.style.backgroundColor = "yellow";
-       } else if (hitCell.hitCount > 0 && hitCell.isSunk()) {
-         const positions = humanGameboard.positions;
-         for (let i = 0; i < positions.length; i++) {
-           const row = positions[i];
-           for (let j = 0; j < row.length; j++) {
-             const col = row[j];
-             if (typeof col === "object") {
-               if (col.hitCount > 0 && col.isSunk()) {
-                 //sunk
-                 const gridCell = document.getElementById(
-                   `${humanGrid.className}-${i},${j}`,
-                 );
-                 gridCell.textContent = "X";
-                 gridCell.style.backgroundColor = "yellow";
-                 gridCell.style.color = "Red";
-                 gridCell.style.border = "1px solid red";
-               }
-             }
-           }
-         }
-       }
-     } else {
-       //shot missed with empty hit
-       const gridCell = document.getElementById(
-         `${humanGrid.className}-${x},${y}`,
-       );
-       gridCell.textContent = "•";
-       // cell.disabled = "true";
-     }
-     cell.disabled = "true";
-     if (humanGameboard.checkAllSunk()) {
-       
-       results.textContent = "Computer has won (Press Reset to play again)";
-       results.style.textShadow= '1px 1px 5px orange';
+      if (hitCell.hitCount > 0 && !hitCell.isSunk()) {
+        const gridCell = document.getElementById(
+          `${humanGrid.className}-${x},${y}`,
+        );
+        gridCell.style.backgroundColor = "yellow";
+      } else if (hitCell.hitCount > 0 && hitCell.isSunk()) {
+        const positions = humanGameboard.positions;
+        for (let i = 0; i < positions.length; i++) {
+          const row = positions[i];
+          for (let j = 0; j < row.length; j++) {
+            const col = row[j];
+            if (typeof col === "object") {
+              if (col.hitCount > 0 && col.isSunk()) {
+                //sunk
+                const gridCell = document.getElementById(
+                  `${humanGrid.className}-${i},${j}`,
+                );
+                gridCell.textContent = "X";
+                gridCell.style.backgroundColor = "yellow";
+                gridCell.style.color = "Red";
+                gridCell.style.border = "1px solid red";
+              }
+            }
+          }
+        }
+      }
+    } else {
+      //shot missed with empty hit
+      const gridCell = document.getElementById(
+        `${humanGrid.className}-${x},${y}`,
+      );
+      gridCell.textContent = "•";
+      // cell.disabled = "true";
+    }
+    cell.disabled = "true";
+    if (humanGameboard.checkAllSunk()) {
+      results.textContent = "Computer has won (Press Reset to play again)";
+      results.style.textShadow = "1px 1px 5px orange";
 
-       removeEventListeners();
-       return;
-  
-      } else if (computerGameboard.checkAllSunk()) {
-       results.textContent = "Human has won (Press Reset to play again)";
-       results.style.textShadow= '1px 1px 5px lime';
-        removeEventListeners();
-       return;
-     }
+      removeEventListeners();
+      return;
+    } else if (computerGameboard.checkAllSunk()) {
+      results.textContent = "Human has won (Press Reset to play again)";
+      results.style.textShadow = "1px 1px 5px lime";
+      removeEventListeners();
+      return;
+    }
   }
 
-  
   cells.forEach((cell) => {
     cell.handleClick = () => handleClick(cell);
-    cell.addEventListener('click',cell.handleClick)
+    cell.addEventListener("click", cell.handleClick);
   });
-  
-  function removeEventListeners() {
-    cells.forEach(cell => {
-      cell.removeEventListener('click', cell.handleClick)
-      cell.disabled = true;
-    })
-  }
 
+  function removeEventListeners() {
+    cells.forEach((cell) => {
+      cell.removeEventListener("click", cell.handleClick);
+      cell.disabled = true;
+    });
+  }
 }
 
 // export default function playGame(human, computer) {

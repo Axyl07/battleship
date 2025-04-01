@@ -35,12 +35,6 @@ export class Gameboard {
         }
         this.placedShips.push(shipName);
       } else {
-        if (x>1) {
-          x = x - 1;
-          
-        } else {
-          x = x+1
-        }
         for (let index = 1; index <= length; index++) {
           //to place same ship spanning multiple cells
           this.positions[x][y + index - 1] = shipName;
@@ -48,8 +42,10 @@ export class Gameboard {
         this.placedShips.push(shipName);
       }
     } else {
+      while (y + length > 9) {
+        y = Math.floor(Math.random() * 10)
+      }
       //for making sure that ship stays within grid's length
-      y = y - length;
       if (typeof this.positions[x][y] !== "object") {
         //to make sure we don't place over existing ship on that position
         for (let index = 1; index <= length; index++) {
@@ -58,12 +54,6 @@ export class Gameboard {
         }
         this.placedShips.push(shipName);
       } else {
-        if (x>1) {
-          x = x - 1;
-          
-        } else {
-          x = x+1
-        }
         for (let index = 1; index <= length; index++) {
           //to place same ship spanning multiple cells
           this.positions[x][y + index - 1] = shipName;
