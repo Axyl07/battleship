@@ -1,4 +1,6 @@
 export default function play(Human, Computer) {
+  const results = document.querySelector(".results");
+  results.textContent = "Game has started! Make your Move"
   let allComputerPlayedMoves = [];
   const computerGrid = document.querySelector(".computerGrid");
   const computerGameboard = Computer.gameboard;
@@ -11,6 +13,7 @@ export default function play(Human, Computer) {
   // let y = 0;
   const cells = computerGrid.querySelectorAll(".col");
   function handleClick(cell) {
+    results.textContent = ""
     //explosion sound effect
     const explosion = document.querySelector('#explosion');
     
@@ -119,18 +122,15 @@ export default function play(Human, Computer) {
      cell.disabled = "true";
      if (humanGameboard.checkAllSunk()) {
        
-       const results = document.querySelector(".results");
-       results.textContent = "Computer has won";
-       results.style.textAlign = "center";
-       results.style.fontSize = "3rem";
+       results.textContent = "Computer has won (Press Reset to play again)";
+       results.style.textShadow= '1px 1px 5px orange';
+
        removeEventListeners();
        return;
   
       } else if (computerGameboard.checkAllSunk()) {
-        const results = document.querySelector(".results");
-        results.textContent = "Human has won";
-        results.style.textAlign = "center";
-        results.style.fontSize = "3rem";
+       results.textContent = "Human has won (Press Reset to play again)";
+       results.style.textShadow= '1px 1px 5px lime';
         removeEventListeners();
        return;
      }

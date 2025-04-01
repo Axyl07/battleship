@@ -11,16 +11,22 @@
 </head>
 <body>
     <h1>Battleship</h1>
-    <button class="startBtn" style="text-align: center;">Start Game</button>
-    <div class="container">
-        <div class="humanGrid" style="display: none; text-align: center;">Your Fleet</div>
-        <div class="computerGrid" style="display: none; text-align: center;">Computer's Fleet</div>
+    <div class="mainContainer">
+        <div class="buttons">
+            <button class="restartBtn" style="text-align: center; display: none;" >Reset</button>
+            <button class="play" style="display: none;">Play</button>
+            <button class="startBtn" style="text-align: center;">Start Game</button>
+        </div>
+        <div class="container">
+            <div class="humanGrid" style="display: none; text-align: center;">Your Fleet</div>
+            <div class="computerGrid" style="display: none; text-align: center;">Computer's Fleet</div>
+        </div>
+        
+        <div class="results"></div>
     </div>
-    <button class="play" style="display: none;">Play</button>
-    <div class="results"></div>
     <audio id="audio" loop autoplay muted >
         <source src="./pirates-163389-5.wav" type="audio/wav">
     </audio>
-    <audio id="explosion" autoplay src="./explosion.wav"></audio>
+    <audio id="explosion" src="./explosion.wav"></audio>
 </body>
 </html>
