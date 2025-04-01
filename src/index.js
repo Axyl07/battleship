@@ -8,7 +8,9 @@ import "./style.css";
 const startButton = document.querySelector(".startBtn");
 startButton.addEventListener("click", () => {
   startGame();
-
+  const audio = document.querySelector('#audio');
+  audio.play();
+  audio.muted = false
   startButton.disabled = true;
 });
 

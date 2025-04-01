@@ -11,13 +11,18 @@ export default function play(Human, Computer) {
   // let y = 0;
   const cells = computerGrid.querySelectorAll(".col");
   function handleClick(cell) {
+    //explosion sound effect
+    const explosion = document.querySelector('#explosion');
+    
      //human plays first
      const idString = cell.id;
      let x = idString.substring(13, 14);
      let y = idString.substring(15, 16);
      computerGameboard.receiveAttack(x, y);
      let hitCell = computerPositions[x][y];
-     if (typeof hitCell === "object") {
+    if (typeof hitCell === "object") {
+      explosion.play();
+      explosion.muted = false;
        if (hitCell.hitCount > 0 && !hitCell.isSunk()) {
          const gridCell = document.getElementById(
            `${computerGrid.className}-${x},${y}`,
@@ -74,7 +79,9 @@ export default function play(Human, Computer) {
      humanGameboard.receiveAttack(x, y);
      //rendering after hit
      hitCell = humanPositions[x][y];
-     if (typeof hitCell === "object") {
+    if (typeof hitCell === "object") {
+      explosion.play();
+      explosion.muted = false;
        if (hitCell.hitCount > 0 && !hitCell.isSunk()) {
          const gridCell = document.getElementById(
            `${humanGrid.className}-${x},${y}`,
