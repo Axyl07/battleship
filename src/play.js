@@ -1,4 +1,6 @@
 export default function play(Human, Computer) {
+  const randomBtn = document.querySelector('.random');
+  randomBtn.style.display = 'none';
   const results = document.querySelector(".results");
   results.textContent = "Game has started! Make your Move";
   let allComputerPlayedMoves = [];

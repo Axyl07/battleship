@@ -27,6 +27,8 @@ export class Gameboard {
   place(x, y, shipName) {
     const length = shipName.length;
     if (y + length < 9) {
+      console.log(this.positions);
+      console.log(this.positions[x][y]);
       if (typeof this.positions[x][y] !== "object") {
         //to make sure we don't place over existing ship on that position
         for (let index = 1; index <= length; index++) {
@@ -43,9 +45,11 @@ export class Gameboard {
       }
     } else {
       while (y + length > 9) {
-        y = Math.floor(Math.random() * 10)
+        y = Math.floor(Math.random() * 10);
       }
       //for making sure that ship stays within grid's length
+      console.log(this.positions);
+      console.log(this.positions[x][y]);
       if (typeof this.positions[x][y] !== "object") {
         //to make sure we don't place over existing ship on that position
         for (let index = 1; index <= length; index++) {
