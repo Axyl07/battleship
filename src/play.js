@@ -68,11 +68,11 @@ export default function play(Human, Computer) {
 
     //then computer plays:
 
-    let move = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    let move = [Math.floor(Math.random() * 9), Math.floor(Math.random() * 9)];
     let moveInStringForm = move.toLocaleString();
     //to only use moves that have not been played before;
     while (allComputerPlayedMoves.includes(moveInStringForm)) {
-      move = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+      move = [Math.floor(Math.random() * 9), Math.floor(Math.random() * 9)];
       moveInStringForm = move.toLocaleString();
     }
     allComputerPlayedMoves.push(moveInStringForm);
@@ -121,12 +121,14 @@ export default function play(Human, Computer) {
         }
       }
     } else {
+      console.log(allComputerPlayedMoves);
+      console.log(x,y);
       //shot missed with empty hit
       const gridCell = document.getElementById(
         `${humanGrid.className}-${x},${y}`,
       );
+      console.log(gridCell);
       gridCell.textContent = "•";
-      // cell.disabled = "true";
     }
     cell.disabled = "true";
     if (humanGameboard.checkAllSunk()) {

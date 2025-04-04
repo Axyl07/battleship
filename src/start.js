@@ -71,7 +71,7 @@ export function startGame() {
   Computer.gameboard.place(x10, y10, CDestroyer);
 
   initialRender(Human, humanGrid);
-  initialRender(Computer, computerGrid);
+  // initialRender(Computer, computerGrid);
   
   const randomBtn = document.querySelector(".random");
   randomBtn.style.display = 'block'
@@ -141,7 +141,7 @@ export function startGame() {
     Computer.gameboard.place(x10, y10, CBattleship);
 
     initialRender(Human, humanGrid);
-    initialRender(Computer, computerGrid);
+    // initialRender(Computer, computerGrid);
     console.log(Human.gameboard.positions);
     console.log(Computer.gameboard.positions);
     console.log(Human.gameboard.placedShips);
