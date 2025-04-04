@@ -26,21 +26,16 @@ export class Gameboard {
 
   place(x, y, shipName) {
     const length = shipName.length;
-    if (
-      typeof this.positions[x][y] == "object" ||
-      (typeof this.positions[x][y + length] == "object" && y + length < 9) ||
-      (typeof this.positions[x][y - length] == "object" && y - length > 0)
-    ) {
       //another ship is present at this location
       while (
         typeof this.positions[x][y] == "object" ||
-        (typeof this.positions[x][y + length] == "object" && y + length < 9) ||
-        (typeof this.positions[x][y - length] == "object" && y - length > 0)
+        (typeof this.positions[x][y + length] == "object" && y + length <= 9) ||
+        (typeof this.positions[x][y - length] == "object" && y - length >= 0)
       ) {
         x = Math.floor(Math.random() * 10); //move to another row if ship is present on that row
         // y = Math.floor(Math.random()*10)
       }
-      if (y + length < 9) {
+      if (y + length <= 9) {
         for (let index = 1; index <= length; index++) {
           //to place same ship spanning multiple cells
           this.positions[x][y + index - 1] = shipName;
@@ -57,27 +52,9 @@ export class Gameboard {
         }
         this.placedShips.push(shipName);
       }
-    } else {
+    } 
       //no ship is present there
-      if (y + length < 9) {
-        for (let index = 1; index <= length; index++) {
-          //to place same ship spanning multiple cells
-          this.positions[x][y + index - 1] = shipName;
-        }
-        this.placedShips.push(shipName);
-      } else {
-        //the ship's length exceeds grid's boundaries
-        while (y + length > 10) {
-          y = y - 1;
-        }
-        for (let index = 1; index <= length; index++) {
-          //to place same ship spanning multiple cells
-          this.positions[x][y + index - 1] = shipName;
-        }
-        this.placedShips.push(shipName);
-      }
-    }
-  }
+
 
   // place(x, y, shipName) {
   //   const length = shipName.length;
