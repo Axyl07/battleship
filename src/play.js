@@ -76,7 +76,7 @@ export default function play(Human, Computer) {
       moveInStringForm = move.toLocaleString();
     }
     allComputerPlayedMoves.push(moveInStringForm);
-    console.log(allComputerPlayedMoves);
+    // console.log(allComputerPlayedMoves);
     x = move[0];
     y = move[1];
     // humanGameboard.receiveAttack(x, y);

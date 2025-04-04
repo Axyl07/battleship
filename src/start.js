@@ -40,35 +40,35 @@ export function startGame() {
   //pre defined coordinates if not randomized
   let x1 = 7;
   let y1 = 9;
-  let x2 = 1;
-  let y2 = 6;
-  let x3 = 2;
-  let y3 = 3;
-  let x4 = 3;
-  let y4 = 6;
+  let x2 = 9;
+  let y2 = 5;
+  let x3 = 9;
+  let y3 = 4;
+  let x4 = 9;
+  let y4 = 3;
   let x5 = 7;
   let y5 = 5;
-  let x6 = 0;
-  let y6 = 0;
+  let x6 = 8;
+  let y6 = 3;
   let x7 = 3;
   let y7 = 5;
   let x8 = 2;
   let y8 = 1;
   let x9 = 6;
   let y9 = 4;
-  let x10 = 0;
-  let y10 = 5;
+  let x10 = 8;
+  let y10 = 2;
   Human.gameboard.place(x1, y1, Hcarrier);
   Human.gameboard.place(x2, y2, HBattleship);
   Human.gameboard.place(x3, y3, HDestroyer);
   Human.gameboard.place(x4, y4, HSubmarine);
   Human.gameboard.place(x5, y5, HPatrolBoat);
 
-  Computer.gameboard.place(x6, y6, CDestroyer);
+  Computer.gameboard.place(x6, y6, CBattleship);
   Computer.gameboard.place(x7, y7, Ccarrier);
   Computer.gameboard.place(x8, y8, CSubmarine);
   Computer.gameboard.place(x9, y9, CPatrolBoat);
-  Computer.gameboard.place(x10, y10, CBattleship);
+  Computer.gameboard.place(x10, y10, CDestroyer);
 
   initialRender(Human, humanGrid);
   initialRender(Computer, computerGrid);
@@ -84,6 +84,10 @@ export function startGame() {
     createGrid(10, 10, computerGrid);
     Human.gameboard.positions = Array.from(Array(10), () => new Array(10));
     Computer.gameboard.positions = Array.from(Array(10), () => new Array(10));
+
+    Human.gameboard.placedShips = [];
+    Computer.gameboard.placedShips = [];
+
 
     // document.querySelector('.humanGrid').remove();
     // document.querySelector('.computerGrid').remove();
@@ -140,6 +144,8 @@ export function startGame() {
     initialRender(Computer, computerGrid);
     console.log(Human.gameboard.positions);
     console.log(Computer.gameboard.positions);
+    console.log(Human.gameboard.placedShips);
+    console.log(Computer.gameboard.placedShips);
     // console.log(Human.gameboard);
     // // console.log(allRandomPositionsArray);
     // console.log(x1, y1);
