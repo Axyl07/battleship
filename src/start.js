@@ -58,7 +58,21 @@ export function startGame() {
   let y9 = 4;
   let x10 = 0;
   let y10 = 5;
+  Human.gameboard.place(x1, y1, Hcarrier);
+  Human.gameboard.place(x2, y2, HBattleship);
+  Human.gameboard.place(x3, y3, HDestroyer);
+  Human.gameboard.place(x4, y4, HSubmarine);
+  Human.gameboard.place(x5, y5, HPatrolBoat);
 
+  Computer.gameboard.place(x6, y6, CDestroyer);
+  Computer.gameboard.place(x7, y7, Ccarrier);
+  Computer.gameboard.place(x8, y8, CSubmarine);
+  Computer.gameboard.place(x9, y9, CPatrolBoat);
+  Computer.gameboard.place(x10, y10, CBattleship);
+
+  initialRender(Human, humanGrid);
+  initialRender(Computer, computerGrid);
+  
   const randomBtn = document.querySelector(".random");
   randomBtn.style.display = 'block'
   randomBtn.addEventListener("click", () => {
@@ -124,40 +138,21 @@ export function startGame() {
 
     initialRender(Human, humanGrid);
     initialRender(Computer, computerGrid);
+    console.log(Human.gameboard.positions);
+    console.log(Computer.gameboard.positions);
     // console.log(Human.gameboard);
     // // console.log(allRandomPositionsArray);
     // console.log(x1, y1);
     // console.log("test");
   });
   console.log(x1, y1);
-  // Human.gameboard.place(x1, y1, Hcarrier);
-  // Human.gameboard.place(x2, y2, HBattleship);
-  // Human.gameboard.place(x3, y3, HDestroyer);
-  // Human.gameboard.place(x4, y4, HSubmarine);
-  // Human.gameboard.place(x5, y5, HPatrolBoat);
-
-  // Computer.gameboard.place(x6, y6, CDestroyer);
-  // Computer.gameboard.place(x7, y7, Ccarrier);
-  // Computer.gameboard.place(x8, y8, CSubmarine);
-  // Computer.gameboard.place(x9, y9, CPatrolBoat);
-  // Computer.gameboard.place(x10, y10, CBattleship);
-  // Computer.gameboard.place(x6, y6, CDestroyer);
-  // Computer.gameboard.place(x7, y7, Ccarrier);
-  // Computer.gameboard.place(x8, y8, CSubmarine);
-  // Computer.gameboard.place(x9, y9, CPatrolBoat);
-  // Computer.gameboard.place(x10, y10, CBattleship);
-  // Human.gameboard.place(0, 5, Hcarrier);
-  // Human.gameboard.place(1, 2, HBattleship);
-  // Human.gameboard.place(4, 5, HDestroyer);
-  // Human.gameboard.place(7, 6, HSubmarine);
-  // Human.gameboard.place(3, 5, HPatrolBoat);
-
-  console.log(Human.gameboard.placedShips);
-  console.log(Computer.gameboard.placedShips);
+  
+  
+  // console.log(Human.gameboard.placedShips);
+  // console.log(Computer.gameboard.placedShips);
   console.log(Human.gameboard.positions);
   console.log(Computer.gameboard.positions);
-  initialRender(Human, humanGrid);
-  initialRender(Computer, computerGrid);
+  
 
   const playBtn = document.querySelector(".play");
   playBtn.style.display = "block";
