@@ -1,20 +1,100 @@
+# Battleship Game
 
-# 1. How to run (for development):
-# 2. npm install
-# 3. npm run start (to run development server)
+Welcome to the Battleship Game! This project is a web-based implementation of the classic Battleship game, allowing players to engage in strategic naval combat against an AI opponent. citeturn0search0
 
-# 4. For Deployment:
-# 5. Make a new branch to deploy from by running `git branch gh-pages`. You only need to do this the first time you deploy. The rest of the steps should be done every time you deploy or redeploy your project.
-# 6. Make sure you have all your work committed. You can use git status to see if there’s anything that needs committing.
-# 7. Run `git checkout gh-pages && git merge main --no-edit` to change branch and sync your changes from main so that you’re ready to deploy.
-# 8. Now let’s bundle our application into dist with your build command. For now, that’s `npx webpack`.
-# 9. Now there are a few more commands. Run each of these in order:
+## Table of Contents
 
-`git add dist -f && git commit -m "Deployment commit"`
+- [Battleship Game](#battleship-game)
+  - [Table of Contents](#table-of-contents)
+  - [Live Demo](#live-demo)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [How to Play](#how-to-play)
+  - [Contributing](#contributing)
 
+## Live Demo
 
-`git subtree push --prefix dist origin gh-pages`
+Experience the game firsthand by visiting the live demo:
 
+[https://axyl07.github.io/battleship/](https://axyl07.github.io/battleship/)
 
-`git checkout main`
-# 10. Recall that the source branch for GitHub Pages is set in your repository’s settings. Get this changed to the `gh-pages` branch. That should be everything!
+## Features
+
+- **Interactive Gameplay**: Engage in a turn-based naval battle against an AI opponent.
+- **Responsive Design**: Enjoy a seamless gaming experience across various devices and screen sizes.
+- **Modern Technologies**: Built using HTML5, CSS3, and JavaScript for a smooth and engaging user experience.
+
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/Axyl07/battleship.git
+   ```
+
+2. **Navigate to the Project Directory**:
+
+   ```bash
+   cd battleship
+   ```
+
+3. **Install Dependencies**:
+
+   Ensure you have [Node.js](https://nodejs.org/) installed. Then, run:
+
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+To start the development server:
+
+```bash
+npm run start
+```
+
+This will launch the game in your default web browser at `http://localhost:8080/`.
+
+## How to Play
+
+1. **Game Setup**:
+   - Upon starting the game, you'll be prompted to place your fleet of ships on the grid. Ships can be placed horizontally or vertically.
+   - Once all ships are positioned, the game begins.
+
+2. **Gameplay**:
+   - The game is turn-based. On your turn, select a cell on the opponent's grid to fire a shot.
+   - The AI opponent will then take its turn.
+   - The objective is to sink all of the opponent's ships before they sink yours.
+
+3. **Winning the Game**:
+   - The first player to sink all of the opponent's ships wins the game.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. **Fork the Repository**.
+2. **Create a New Branch**:
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make Your Changes**.
+4. **Commit Your Changes**:
+
+   ```bash
+   git commit -m "Add your message here"
+   ```
+
+5. **Push to Your Branch**:
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. **Open a Pull Request**.
