@@ -1,6 +1,6 @@
 # Battleship Game
 
-Welcome to the Battleship Game! This project is a web-based implementation of the classic Battleship game, allowing players to engage in strategic naval combat against an AI opponent. citeturn0search0
+Welcome to the Battleship Game! This project is a web-based implementation of the classic Battleship game, allowing players to engage in strategic naval combat against an AI opponent.
 
 ## Table of Contents
 

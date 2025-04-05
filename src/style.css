@@ -1,37 +1,64 @@
-*{
-    font-family: Poppins;
+* {
+  font-family: Poppins;
 }
-h1{
+h1 {
   font-size: 3rem;
-    text-align: center;
+  text-align: center;
 }
 
-.buttons{
+.buttons {
   width: 87.5vw;
   display: flex;
   justify-content: space-evenly;
 }
+header{
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  width: 80vw;
+  display: flex;
 
-.startBtn,.play,.restartBtn,.random{
-    border-radius: 10px;
-    color: aliceblue;
-    background-color: hsla(146, 90%, 42%, 0.596);
-    font-size: 2rem;
-    width: 15vw;
-    text-align: center;
-    transition: 0.15s ease-in-out ;
 }
-.buttons button:hover{
+a {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: aliceblue;
+  background-color: hsla(146, 90%, 42%, 0.596);
+  font-size: 2rem;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  transition: 0.15s ease-in-out;
+  text-decoration: none;
+}
+
+.startBtn,
+.play,
+.restartBtn,
+.random {
+  border-radius: 10px;
+  color: aliceblue;
+  background-color: hsla(146, 90%, 42%, 0.596);
+  font-size: 2rem;
+  width: 15vw;
+  text-align: center;
+  transition: 0.15s ease-in-out;
+}
+.buttons button:hover {
   cursor: pointer;
   transform: scale(1.05);
   box-shadow: 0px 0px 50px hsla(146, 90%, 42%, 0.596);
 }
 body {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    color: aliceblue;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: aliceblue;
   background-image: url(./battleship.jpg);
   background-size: cover;
   background-position: center;
@@ -39,7 +66,7 @@ body {
   background-attachment: fixed;
 }
 
-.mainContainer{
+.mainContainer {
   width: 80vw;
   backdrop-filter: blur(10px);
   display: flex;
@@ -48,30 +75,30 @@ body {
   justify-content: center;
 }
 .container {
-    border: none;
+  border: none;
 
-    font-size: 2rem;
+  font-size: 2rem;
   display: flex;
   gap: 10vw;
   justify-content: space-between;
 }
 .humanGrid {
-    border: none;
+  border: none;
   display: flex;
   width: 540px;
   height: 540px;
   flex-direction: column;
 }
 .computerGrid {
-    border: none;
+  border: none;
   display: flex;
   width: 540px;
   height: 540px;
   flex-direction: column;
 }
 .col {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
   cursor: crosshair;
   transition: 0.1s ease-in-out;
 }
@@ -79,7 +106,7 @@ body {
   background-color: hsla(187, 89%, 36%, 0.884);
   transform: scale(1.15);
 }
-.results{
+.results {
   text-shadow: 1px 1px 5px aqua;
   text-align: center;
   font-size: 3rem;
