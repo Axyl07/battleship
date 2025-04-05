@@ -62,7 +62,7 @@ This will launch the game in your default web browser at `http://localhost:8080/
 ## How to Play
 
 1. **Game Setup**:
-   - Upon starting the game, you'll be prompted to place your fleet of ships on the grid. Ships can be placed horizontally or vertically.
+   - Upon starting the game, you'll be prompted to place your fleet of ships on the grid. Ships can be placed horizontally.
    - Once all ships are positioned, the game begins.
 
 2. **Gameplay**:
