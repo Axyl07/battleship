@@ -14,13 +14,6 @@ export default function initialRender(Player, Grid) {
         gridCell.style.backgroundColor = "orange"
         gridCell.style.border = "1px dashed cyan"
       }
-      // else {
-      //   const gridCell = document.getElementById(
-      //     `${Grid.className}-${i},${j}`,
-      //   );
-      //   gridCell.style.backgroundColor = "cyan"
-      //   gridCell.style.border = "1px dashed cyan"
-      // }
     }
   }
 }

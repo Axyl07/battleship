@@ -3,8 +3,7 @@ import { createGrid } from "./createGrid";
 import play from "./play";
 import initialRender from "./initialRender";
 import resetGrid from "./resetGrid";
-// import removeGrid from "./removeGrid";
-// import renderGameboard from "./renderGameboard";
+
 // No.	Class of ship	Size
 // 1	Carrier	        5
 // 2	Battleship	    4
@@ -12,13 +11,14 @@ import resetGrid from "./resetGrid";
 // 4	Submarine	      3
 // 5	Patrol Boat	    2
 export function startGame() {
-  console.log("test");
+  const resultDiv = document.querySelector('.results');
+  resultDiv.textContent = "Press the Play button to start the game";
   const Human = new Player("Human");
   const Computer = new Player("Computer");
 
   const humanGrid = document.querySelector(".humanGrid");
   const computerGrid = document.querySelector(".computerGrid");
-  // console.log(humanGrid.querySelector('#1,1'));
+  
   humanGrid.style.display = "flex";
   computerGrid.style.display = "flex";
   createGrid(10, 10, humanGrid);
@@ -71,12 +71,12 @@ export function startGame() {
   Computer.gameboard.place(x10, y10, CDestroyer);
 
   initialRender(Human, humanGrid);
-  // initialRender(Computer, computerGrid);
+  
   
   const randomBtn = document.querySelector(".random");
   randomBtn.style.display = 'block'
   randomBtn.addEventListener("click", () => {
-    //creates 2D array of 10x10
+    
 
     resetGrid(humanGrid);
     resetGrid(computerGrid);
@@ -89,11 +89,8 @@ export function startGame() {
     Computer.gameboard.placedShips = [];
 
 
-    // document.querySelector('.humanGrid').remove();
-    // document.querySelector('.computerGrid').remove();
     let allRandomPositionsArray = [];
-    // Human.gameboard.placedShips = [];
-    // Computer.gameboard.placedShips = [];
+
     while (allRandomPositionsArray.length != 10) {
       let move = [
         Math.floor(Math.random() * 10),
@@ -141,21 +138,15 @@ export function startGame() {
     Computer.gameboard.place(x10, y10, CBattleship);
 
     initialRender(Human, humanGrid);
-    // initialRender(Computer, computerGrid);
     console.log(Human.gameboard.positions);
     console.log(Computer.gameboard.positions);
     console.log(Human.gameboard.placedShips);
     console.log(Computer.gameboard.placedShips);
-    // console.log(Human.gameboard);
-    // // console.log(allRandomPositionsArray);
-    // console.log(x1, y1);
-    // console.log("test");
+
   });
   console.log(x1, y1);
   
-  
-  // console.log(Human.gameboard.placedShips);
-  // console.log(Computer.gameboard.placedShips);
+
   console.log(Human.gameboard.positions);
   console.log(Computer.gameboard.positions);
   
